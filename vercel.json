@@ -1,0 +1,36 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/pages/home.html"
+        },
+        {
+            "source": "/home",
+            "destination": "/pages/home.html"
+        },
+        {
+            "source": "/products",
+            "destination": "/pages/products.html"
+        },
+        {
+            "source": "/about",
+            "destination": "/pages/about.html"
+        },
+        {
+            "source": "/location",
+            "destination": "/pages/location.html"
+        },
+        {
+            "source": "/contact",
+            "destination": "/pages/contact.html"
+        },
+        {
+            "source": "/login",
+            "destination": "/pages/login.html"
+        },
+        {
+            "source": "/register",
+            "destination": "/pages/register.html"
+        }
+    ]
+}

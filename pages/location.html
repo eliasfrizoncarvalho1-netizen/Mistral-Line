@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location / Mistral Line</title>
+
+    <link rel="stylesheet" href="/css/location.css">
+    <script src="/js/home.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+
+        <button class="menu-button" id="navToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <a href="/pages/home.html" class="logo-area">
+            <img id="logo" src="/img/logo.png" alt="Mistral Line Logo">
+        </a>
+
+        <div class="nav-panel" id="menu">
+            <ul class="menu-links">
+                <li><a href="/pages/home.html">Home</a></li>
+                <li><a href="/pages/products.html">Products</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/location.html">Location</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+
+            <div class="menu-actions">
+                <a href="/pages/login.html" class="btn-login">Logar</a>
+                <a href="/pages/register.html" class="btn-create">Criar</a>
+            </div>
+        </div>
+
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero-location">
+        <img src="/img/imagem2.png" alt="Loja Mistral Line" class="hero-image">
+        <div class="hero-dark"></div>
+
+        <div class="hero-content">
+            <span>Mistral Line</span>
+            <h1>Location</h1>
+            <p>Rua Maria Lopes Arruda, 931 — Umbará, Curitiba - PR.</p>
+            <a href="#mapa" class="main-btn">Ver no mapa</a>
+        </div>
+    </section>
+
+    <section class="location-info">
+
+        <div class="location-text">
+            <span>Endereço</span>
+            <h2>Rua Maria Lopes Arruda, 931</h2>
+
+            <p>
+                A Mistral Line está localizada em Curitiba, no bairro Umbará.
+                Use o mapa abaixo para abrir a rota e encontrar a localização.
+            </p>
+
+            <div class="info-list">
+                <div>
+                    <strong>Rua</strong>
+                    <p>Maria Lopes Arruda, 931</p>
+                </div>
+
+                <div>
+                    <strong>Bairro</strong>
+                    <p>Umbará</p>
+                </div>
+
+                <div>
+                    <strong>Cidade</strong>
+                    <p>Curitiba - PR</p>
+                </div>
+            </div>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Rua%20Maria%20Lopes%20Arruda%20931%20Umbar%C3%A1%20Curitiba%20PR"
+                target="_blank"
+                class="route-btn"
+            >
+                Abrir rota
+            </a>
+        </div>
+
+        <div class="location-image">
+            <img src="/img/loja-mistral.png" alt="Interior da loja Mistral Line">
+        </div>
+
+    </section>
+
+    <section class="map-section" id="mapa">
+        <div class="map-title">
+            <span>Google Maps</span>
+            <h2>Veja a localização</h2>
+            <p>Rua Maria Lopes Arruda, 931 — Umbará, Curitiba - PR</p>
+        </div>
+
+        <div class="map-box">
+            <iframe
+                src="https://www.google.com/maps?q=Rua%20Maria%20Lopes%20Arruda%20931%20Umbar%C3%A1%20Curitiba%20PR&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div>
+        <img src="/img/logo.png" alt="Mistral Line Logo">
+        <p>Moda masculina premium criada com visão, estilo e atitude.</p>
+    </div>
+
+    <ul>
+        <li><a href="/pages/home.html">Home</a></li>
+        <li><a href="/pages/products.html">Products</a></li>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="/pages/contact.html">Contact</a></li>
+    </ul>
+</footer>
+
+</body>
+</html>

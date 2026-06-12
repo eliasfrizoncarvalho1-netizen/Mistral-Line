@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register / Mistral Line</title>
+<link rel="stylesheet" href="/css/register.css">
+<script src="/js/home.js" defer></script>
+<script type="module" src="/js/firebase-auth.js"></script>
+    <link rel="stylesheet" href="/css/register.css">
+    <script src="/js/home.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+
+        <button class="menu-button" id="navToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <a href="/pages/home.html" class="logo-area">
+            <img id="logo" src="/img/logo.png" alt="Mistral Line Logo">
+        </a>
+
+        <div class="nav-panel" id="menu">
+            <ul class="menu-links">
+                <li><a href="/pages/home.html">Home</a></li>
+                <li><a href="/pages/products.html">Products</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/location.html">Location</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+
+            <div class="menu-actions">
+                <a href="/pages/login.html" class="btn-login">Logar</a>
+                <a href="/pages/register.html" class="btn-create">Criar</a>
+            </div>
+        </div>
+
+    </nav>
+</header>
+
+<main>
+
+    <section class="register-page">
+
+        <img src="/img/imagem2.png" alt="Mistral Line" class="register-bg">
+        <div class="register-overlay"></div>
+
+        <div class="register-container">
+
+            <div class="register-text">
+                <span>Mistral Line</span>
+                <h1>Crie sua conta.</h1>
+                <p>
+                    Faça parte da Mistral Line para acompanhar pedidos,
+                    salvar favoritos e receber novidades da coleção.
+                </p>
+            </div>
+
+            <form class="register-card">
+
+                <div class="form-header">
+                    <span>Cadastro</span>
+                    <h2>Criar conta</h2>
+                    <p>Preencha seus dados para continuar.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" placeholder="Seu nome">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seuemail@gmail.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" placeholder="(41) 99999-9999">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Crie uma senha">
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirmar senha</label>
+                    <input type="password" id="confirm-password" placeholder="Confirme sua senha">
+                </div>
+
+                <label class="terms">
+                    <input type="checkbox">
+                    <span>Aceito os termos e a política de privacidade.</span>
+                </label>
+
+                <button type="button">Criar conta</button>
+
+                <p class="login-account">
+                    Já tem conta?
+                    <a href="/pages/login.html">Entrar</a>
+                </p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Mistral Line</title>
+    <link rel="stylesheet" href="/css/login.css">
+<script src="/js/home.js" defer></script>
+<script type="module" src="/js/firebase-auth.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/home.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+
+        <button class="menu-button" id="navToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <a href="/pages/home.html" class="logo-area">
+            <img id="logo" src="/img/logo.png" alt="Mistral Line Logo">
+        </a>
+
+        <div class="nav-panel" id="menu">
+            <ul class="menu-links">
+                <li><a href="/pages/home.html">Home</a></li>
+                <li><a href="/pages/products.html">Products</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/location.html">Location</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+
+            <div class="menu-actions">
+                <a href="/pages/login.html" class="btn-login">Logar</a>
+                <a href="/pages/register.html" class="btn-create">Criar</a>
+            </div>
+        </div>
+
+    </nav>
+</header>
+
+<main>
+
+    <section class="login-page">
+
+        <img src="/img/imagem2.png" alt="Mistral Line" class="login-bg">
+        <div class="login-overlay"></div>
+
+        <div class="login-container">
+
+            <div class="login-text">
+                <span>Mistral Line</span>
+                <h1>Entre na sua conta.</h1>
+                <p>
+                    Acesse sua conta para acompanhar pedidos, salvar favoritos
+                    e explorar a coleção Mistral Line.
+                </p>
+            </div>
+
+            <form class="login-card">
+
+                <div class="form-header">
+                    <span>Login</span>
+                    <h2>Bem-vindo de volta</h2>
+                    <p>Preencha seus dados para continuar.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seuemail@gmail.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha">
+                </div>
+
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox">
+                        <span>Lembrar de mim</span>
+                    </label>
+
+                    <a href="#">Esqueci a senha</a>
+                </div>
+
+                <button type="button">Entrar</button>
+
+                <p class="create-account">
+                    Não tem conta?
+                    <a href="/pages/register.html">Criar conta</a>
+                </p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

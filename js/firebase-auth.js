@@ -3,17 +3,25 @@ import { auth, db } from "./firebase-config.js";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    updateProfile
+    updateProfile,
+    GoogleAuthProvider,
+    signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 import {
     doc,
     setDoc,
+    getDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 const loginForm = document.querySelector(".login-card");
 const registerForm = document.querySelector(".register-card");
+
+const googleLoginBtn = document.getElementById("googleLoginBtn");
+const googleRegisterBtn = document.getElementById("googleRegisterBtn");
+
+const googleProvider = new GoogleAuthProvider();
 
 function mostrarErro(mensagem) {
     alert(mensagem);
@@ -23,8 +31,56 @@ function limparTexto(valor) {
     return valor ? valor.trim() : "";
 }
 
+async function salvarUsuarioGoogle(user) {
+    const userRef = doc(db, "users", user.uid);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+        await setDoc(userRef, {
+            uid: user.uid,
+            name: user.displayName || "Cliente Mistral Line",
+            email: user.email,
+            phone: "",
+            provider: "google",
+            photoURL: user.photoURL || "",
+            createdAt: serverTimestamp()
+        });
+    }
+}
+
+async function entrarComGoogle() {
+    try {
+        const result = await signInWithPopup(auth, googleProvider);
+        const user = result.user;
+
+        await salvarUsuarioGoogle(user);
+
+        alert("Login com Google realizado com sucesso.");
+        window.location.href = "/pages/home.html";
+
+    } catch (error) {
+        console.error(error);
+
+        if (error.code === "auth/popup-closed-by-user") {
+            mostrarErro("Login cancelado.");
+        } else if (error.code === "auth/popup-blocked") {
+            mostrarErro("O navegador bloqueou o popup. Libere popup para este site.");
+        } else {
+            mostrarErro("Erro ao entrar com Google.");
+        }
+    }
+}
+
+if (googleLoginBtn) {
+    googleLoginBtn.addEventListener("click", entrarComGoogle);
+}
+
+if (googleRegisterBtn) {
+    googleRegisterBtn.addEventListener("click", entrarComGoogle);
+}
+
 if (registerForm) {
-    const registerButton = registerForm.querySelector("button");
+    const registerButton = registerForm.querySelector("button:not(.google-btn)");
 
     registerButton.addEventListener("click", async () => {
         const name = limparTexto(document.getElementById("name").value);
@@ -64,6 +120,7 @@ if (registerForm) {
                 name: name,
                 email: email,
                 phone: phone,
+                provider: "email",
                 createdAt: serverTimestamp()
             });
 
@@ -71,6 +128,8 @@ if (registerForm) {
             window.location.href = "/pages/login.html";
 
         } catch (error) {
+            console.error(error);
+
             if (error.code === "auth/email-already-in-use") {
                 mostrarErro("Esse e-mail já está cadastrado.");
             } else if (error.code === "auth/invalid-email") {
@@ -79,7 +138,6 @@ if (registerForm) {
                 mostrarErro("Senha fraca. Use pelo menos 6 caracteres.");
             } else {
                 mostrarErro("Erro ao criar conta.");
-                console.error(error);
             }
 
             registerButton.disabled = false;
@@ -89,7 +147,7 @@ if (registerForm) {
 }
 
 if (loginForm) {
-    const loginButton = loginForm.querySelector("button");
+    const loginButton = loginForm.querySelector("button:not(.google-btn)");
 
     loginButton.addEventListener("click", async () => {
         const email = limparTexto(document.getElementById("email").value).toLowerCase();
@@ -110,6 +168,8 @@ if (loginForm) {
             window.location.href = "/pages/home.html";
 
         } catch (error) {
+            console.error(error);
+
             if (error.code === "auth/invalid-email") {
                 mostrarErro("E-mail inválido.");
             } else if (
@@ -120,7 +180,6 @@ if (loginForm) {
                 mostrarErro("E-mail ou senha incorretos.");
             } else {
                 mostrarErro("Erro ao fazer login.");
-                console.error(error);
             }
 
             loginButton.disabled = false;

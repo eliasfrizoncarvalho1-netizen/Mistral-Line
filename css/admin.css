@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f1ec;
+    color: #111;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.admin-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+}
+
+.sidebar {
+    min-height: 100vh;
+    padding: 28px;
+    background: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.brand img {
+    width: 150px;
+    max-height: 54px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: invert(1);
+}
+
+.brand h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    font-weight: 500;
+}
+
+.sidebar nav {
+    display: grid;
+    gap: 12px;
+}
+
+.sidebar nav button,
+.logout {
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    transition: 0.25s ease;
+}
+
+.sidebar nav button:hover,
+.sidebar nav button.active {
+    background: #fff;
+    color: #111;
+}
+
+.logout {
+    margin-top: auto;
+    background: #fff;
+    color: #111;
+}
+
+.content {
+    padding: 38px;
+}
+
+.topbar {
+    margin-bottom: 34px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.topbar span,
+.card span,
+.panel-header span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.topbar h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 500;
+}
+
+#adminEmail {
+    font-size: 13px;
+    color: #555;
+}
+
+.cards {
+    margin-bottom: 34px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card {
+    padding: 28px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card strong {
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.panel {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.panel-header {
+    padding: 28px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.panel-header h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+#refreshBtn {
+    height: 44px;
+    padding: 0 22px;
+    border: 1px solid #111;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.status {
+    padding: 7px 12px;
+    background: #111;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+    .admin-page {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        min-height: auto;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

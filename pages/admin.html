@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin / Mistral Line</title>
+
+    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/admin.css">
+
+    <script type="module" src="/js/admin.js"></script>
+</head>
+<body>
+
+<main class="admin-page">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="/img/logo.png" alt="Mistral Line">
+            <h1>Admin</h1>
+        </div>
+
+        <nav>
+            <button class="active" data-section="dashboard">Dashboard</button>
+            <button data-section="orders">Pedidos</button>
+            <button data-section="users">Clientes</button>
+            <button data-section="products">Produtos</button>
+        </nav>
+
+        <button id="logoutBtn" class="logout">Sair</button>
+    </aside>
+
+    <section class="content">
+
+        <header class="topbar">
+            <div>
+                <span>Painel administrativo</span>
+                <h2>Mistral Line</h2>
+            </div>
+
+            <p id="adminEmail">Carregando...</p>
+        </header>
+
+        <section class="cards">
+            <div class="card">
+                <span>Total de pedidos</span>
+                <strong id="totalOrders">0</strong>
+            </div>
+
+            <div class="card">
+                <span>Clientes</span>
+                <strong id="totalUsers">0</strong>
+            </div>
+
+            <div class="card">
+                <span>Faturamento</span>
+                <strong id="totalRevenue">R$ 0,00</strong>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <div>
+                    <span>Pedidos recentes</span>
+                    <h3>Compras recebidas</h3>
+                </div>
+
+                <button id="refreshBtn">Atualizar</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Telefone</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="ordersTable">
+                        <tr>
+                            <td colspan="5">Carregando pedidos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </section>
+
+</main>
+
+</body>
+</html>

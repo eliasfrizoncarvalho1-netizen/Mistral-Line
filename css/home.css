@@ -1147,3 +1147,33 @@ button {
         height: 94px;
     }
 }
+.footer-bottom {
+    width: 100%;
+    padding: 22px 20px;
+    background: #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .footer-bottom {
+        padding: 20px 14px;
+    }
+
+    .footer-bottom p {
+        font-size: 11px;
+        letter-spacing: 0.8px;
+    }
+}

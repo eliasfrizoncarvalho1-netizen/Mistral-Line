@@ -12,65 +12,159 @@
 </head>
 <body>
 
-<main class="admin-page">
+<main class="admin-layout">
 
-    <aside class="sidebar">
-        <div class="brand">
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
             <img src="/img/logo.png" alt="Mistral Line">
-            <h1>Admin</h1>
+            <div>
+                <span>Painel</span>
+                <h1>Admin</h1>
+            </div>
         </div>
 
-        <nav>
-            <button class="active" data-section="dashboard">Dashboard</button>
-            <button data-section="orders">Pedidos</button>
-            <button data-section="users">Clientes</button>
-            <button data-section="products">Produtos</button>
+        <nav class="admin-menu">
+            <button class="menu-item active" data-section="dashboard">
+                <span>01</span>
+                Dashboard
+            </button>
+
+            <button class="menu-item" data-section="orders">
+                <span>02</span>
+                Pedidos
+            </button>
+
+            <button class="menu-item" data-section="customers">
+                <span>03</span>
+                Clientes
+            </button>
+
+            <button class="menu-item" data-section="products">
+                <span>04</span>
+                Produtos
+            </button>
+
+            <button class="menu-item" data-section="messages">
+                <span>05</span>
+                Mensagens
+            </button>
+
+            <button class="menu-item" data-section="settings">
+                <span>06</span>
+                Configurações
+            </button>
         </nav>
 
-        <button id="logoutBtn" class="logout">Sair</button>
+        <div class="admin-user">
+            <p id="adminEmail">Carregando...</p>
+            <button id="logoutBtn">Sair</button>
+        </div>
+
     </aside>
 
-    <section class="content">
+    <section class="admin-content">
 
-        <header class="topbar">
+        <header class="admin-topbar">
             <div>
-                <span>Painel administrativo</span>
-                <h2>Mistral Line</h2>
+                <span>Mistral Line</span>
+                <h2 id="pageTitle">Dashboard</h2>
             </div>
 
-            <p id="adminEmail">Carregando...</p>
-        </header>
-
-        <section class="cards">
-            <div class="card">
-                <span>Total de pedidos</span>
-                <strong id="totalOrders">0</strong>
-            </div>
-
-            <div class="card">
-                <span>Clientes</span>
-                <strong id="totalUsers">0</strong>
-            </div>
-
-            <div class="card">
-                <span>Faturamento</span>
-                <strong id="totalRevenue">R$ 0,00</strong>
-            </div>
-        </section>
-
-        <section class="panel">
-            <div class="panel-header">
-                <div>
-                    <span>Pedidos recentes</span>
-                    <h3>Compras recebidas</h3>
-                </div>
-
+            <div class="topbar-actions">
+                <a href="/pages/home.html" target="_blank">Ver site</a>
                 <button id="refreshBtn">Atualizar</button>
             </div>
+        </header>
 
-            <div class="table-wrapper">
-                <table>
-                    <thead>
+        <section class="section-page active" id="dashboard">
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span>Total de pedidos</span>
+                    <strong id="totalOrders">0</strong>
+                    <small>Pedidos cadastrados</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Faturamento</span>
+                    <strong id="totalRevenue">R$ 0,00</strong>
+                    <small>Soma dos pedidos</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Clientes</span>
+                    <strong id="totalUsers">0</strong>
+                    <small>Usuários cadastrados</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Produtos</span>
+                    <strong id="totalProducts">0</strong>
+                    <small>Produtos no banco</small>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <span>Resumo</span>
+                            <h3>Status dos pedidos</h3>
+                        </div>
+                    </div>
+
+                    <div class="status-list">
+                        <div>
+                            <span>Novo</span>
+                            <strong id="statusNew">0</strong>
+                        </div>
+
+                        <div>
+                            <span>Pendente</span>
+                            <strong id="statusPending">0</strong>
+                        </div>
+
+                        <div>
+                            <span>Aprovado</span>
+                            <strong id="statusApproved">0</strong>
+                        </div>
+
+                        <div>
+                            <span>Cancelado</span>
+                            <strong id="statusCanceled">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <span>Ações rápidas</span>
+                            <h3>Controle</h3>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button data-go="orders">Ver pedidos</button>
+                        <button data-go="products">Cadastrar produto</button>
+                        <button data-go="customers">Ver clientes</button>
+                        <button id="exportOrdersBtn">Exportar pedidos CSV</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <span>Últimos pedidos</span>
+                        <h3>Compras recentes</h3>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
                         <tr>
                             <th>Cliente</th>
                             <th>Telefone</th>
@@ -78,20 +172,233 @@
                             <th>Status</th>
                             <th>Data</th>
                         </tr>
-                    </thead>
+                        </thead>
 
-                    <tbody id="ordersTable">
+                        <tbody id="recentOrdersTable">
                         <tr>
-                            <td colspan="5">Carregando pedidos...</td>
+                            <td colspan="5">Carregando...</td>
                         </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
+        </section>
+
+        <section class="section-page" id="orders">
+
+            <div class="panel">
+                <div class="panel-header panel-header-wrap">
+                    <div>
+                        <span>Pedidos</span>
+                        <h3>Gerenciar pedidos</h3>
+                    </div>
+
+                    <div class="filters">
+                        <input type="search" id="orderSearch" placeholder="Buscar cliente, telefone ou status">
+                        <select id="orderStatusFilter">
+                            <option value="">Todos</option>
+                            <option value="novo">Novo</option>
+                            <option value="pending_payment">Pagamento pendente</option>
+                            <option value="approved">Aprovado</option>
+                            <option value="cancelled">Cancelado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Telefone</th>
+                            <th>Itens</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="ordersTable">
+                        <tr>
+                            <td colspan="7">Carregando pedidos...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section-page" id="customers">
+
+            <div class="panel">
+                <div class="panel-header panel-header-wrap">
+                    <div>
+                        <span>Clientes</span>
+                        <h3>Usuários cadastrados</h3>
+                    </div>
+
+                    <div class="filters">
+                        <input type="search" id="userSearch" placeholder="Buscar nome ou e-mail">
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Provider</th>
+                            <th>Data</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="usersTable">
+                        <tr>
+                            <td colspan="5">Carregando clientes...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section-page" id="products">
+
+            <div class="panel">
+                <div class="panel-header panel-header-wrap">
+                    <div>
+                        <span>Produtos</span>
+                        <h3>Catálogo da loja</h3>
+                    </div>
+
+                    <div class="filters">
+                        <input type="search" id="productSearch" placeholder="Buscar produto">
+                        <button id="openProductModal">Novo produto</button>
+                    </div>
+                </div>
+
+                <div class="products-admin-grid" id="productsGrid">
+                    <p class="empty-text">Carregando produtos...</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section-page" id="messages">
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <span>Mensagens</span>
+                        <h3>Contato dos clientes</h3>
+                    </div>
+                </div>
+
+                <div class="messages-list" id="messagesList">
+                    <p class="empty-text">Nenhuma mensagem carregada.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section-page" id="settings">
+
+            <div class="panel settings-panel">
+                <div class="panel-header">
+                    <div>
+                        <span>Configurações</span>
+                        <h3>Área administrativa</h3>
+                    </div>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="setting-box">
+                        <span>Admin autorizado</span>
+                        <strong id="settingEmail">Carregando...</strong>
+                    </div>
+
+                    <div class="setting-box">
+                        <span>Status do sistema</span>
+                        <strong>Online</strong>
+                    </div>
+
+                    <div class="setting-box">
+                        <span>Banco de dados</span>
+                        <strong>Firebase Firestore</strong>
+                    </div>
+
+                    <div class="setting-box">
+                        <span>Hospedagem</span>
+                        <strong>Vercel</strong>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
     </section>
 
 </main>
-<footer class="footer-bottom"> <p>&copy; 2026 Mistral Line. Todos os direitos reservados.</p> </footer>
+
+<div class="modal-overlay" id="productModal">
+    <div class="modal">
+        <div class="modal-header">
+            <div>
+                <span>Produto</span>
+                <h3 id="modalTitle">Novo produto</h3>
+            </div>
+
+            <button id="closeProductModal">×</button>
+        </div>
+
+        <form id="productForm">
+            <input type="hidden" id="productId">
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" id="productName" placeholder="Ex: Camiseta Black Line" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <input type="text" id="productCategory" placeholder="Ex: Camisetas" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Preço</label>
+                    <input type="number" id="productPrice" placeholder="149.90" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Estoque</label>
+                    <input type="number" id="productStock" placeholder="10" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Imagem</label>
+                <input type="text" id="productImage" placeholder="/img/camisetas.png" required>
+            </div>
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea id="productDescription" placeholder="Descrição do produto..." required></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" id="cancelProductBtn">Cancelar</button>
+                <button type="submit">Salvar produto</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

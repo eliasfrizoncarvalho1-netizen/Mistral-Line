@@ -59,14 +59,18 @@ async function entrarComGoogle() {
         window.location.href = "/pages/home.html";
 
     } catch (error) {
-        console.error(error);
+        console.error("ERRO GOOGLE:", error);
 
         if (error.code === "auth/popup-closed-by-user") {
             mostrarErro("Login cancelado.");
         } else if (error.code === "auth/popup-blocked") {
             mostrarErro("O navegador bloqueou o popup. Libere popup para este site.");
+        } else if (error.code === "auth/unauthorized-domain") {
+            mostrarErro("Erro Google: domínio não autorizado no Firebase.");
+        } else if (error.code === "auth/operation-not-allowed") {
+            mostrarErro("Erro Google: login com Google não está ativado no Firebase.");
         } else {
-            mostrarErro("Erro ao entrar com Google.");
+            mostrarErro("Erro Google: " + error.code);
         }
     }
 }
@@ -128,7 +132,7 @@ if (registerForm) {
             window.location.href = "/pages/login.html";
 
         } catch (error) {
-            console.error(error);
+            console.error("ERRO CADASTRO:", error);
 
             if (error.code === "auth/email-already-in-use") {
                 mostrarErro("Esse e-mail já está cadastrado.");
@@ -137,7 +141,7 @@ if (registerForm) {
             } else if (error.code === "auth/weak-password") {
                 mostrarErro("Senha fraca. Use pelo menos 6 caracteres.");
             } else {
-                mostrarErro("Erro ao criar conta.");
+                mostrarErro("Erro ao criar conta: " + error.code);
             }
 
             registerButton.disabled = false;
@@ -168,7 +172,7 @@ if (loginForm) {
             window.location.href = "/pages/home.html";
 
         } catch (error) {
-            console.error(error);
+            console.error("ERRO LOGIN:", error);
 
             if (error.code === "auth/invalid-email") {
                 mostrarErro("E-mail inválido.");
@@ -179,7 +183,7 @@ if (loginForm) {
             ) {
                 mostrarErro("E-mail ou senha incorretos.");
             } else {
-                mostrarErro("Erro ao fazer login.");
+                mostrarErro("Erro ao fazer login: " + error.code);
             }
 
             loginButton.disabled = false;
